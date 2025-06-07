@@ -1,10 +1,13 @@
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/tailwind/utils";
+import { PlusIcon } from "@/components/icons";
 import {
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   type ColumnDef,
   type TableOptions,
   useReactTable,
+  getFilteredRowModel,
 } from "@tanstack/react-table";
 import {
   Table,
@@ -22,8 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { cn } from "@/lib/tailwind/utils";
-import { Button } from "@/components/ui/button";
 import type { SymbolList } from "@/@types/symbols";
 
 interface SymbolListProps<TData, TValue> {
@@ -78,7 +79,13 @@ export function SymbolListTable<TData, TValue>({
             <></>
           )}
         </Select>
-        <Button onClick={handleAddList}>+</Button>
+        <Button
+          aria-label="Add list"
+          onClick={handleAddList}
+          className="px-2.5"
+        >
+          <PlusIcon />
+        </Button>
       </div>
 
       <div className="w-full border rounded-md">
