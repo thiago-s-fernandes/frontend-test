@@ -1,23 +1,20 @@
-import { SymbolList } from "@/components/symbols/symbol-list";
-import { SymbolSelect } from "@/components/symbols/symbol-select";
-import { useSymbolsContext } from "@/hooks/use-symbols-context";
+import { SymbolList } from "@/components/symbols/list/symbol-list";
+import { SymbolSelector } from "@/components/symbols/selector/symbol-selector";
 
 export default function App() {
-  const { symbols, isLoading } = useSymbolsContext();
-
   return (
     <main
       role="main"
-      className="container h-dvh flex items-center justify-center"
+      className="bg-muted container h-full py-6 flex items-center justify-center min-md:h-dvh"
     >
-      <div className="w-full flex gap-3">
-        {/* Search */}
-        <div className="flex">
-          <SymbolSelect symbols={symbols} isLoading={isLoading} />
+      <div className="w-full flex flex-col gap-3 min-lg:flex-row">
+        {/* Selector */}
+        <div className="w-full flex rounded-md bg-white border border-muted p-4 shadow-md min-lg:max-w-[264px]">
+          <SymbolSelector />
         </div>
 
         {/* List */}
-        <div className="flex flex-col gap-2 w-[calc(100%-262px)]">
+        <div className="w-full flex rounded-md bg-white border border-muted p-4 shadow-md full min-lg:w-[calc(100%-264px)]">
           <SymbolList />
         </div>
       </div>
