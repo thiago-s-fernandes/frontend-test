@@ -24,14 +24,6 @@ export function SymbolSelectorManager({
 
     if (!activeListId || keysSelectedSymbols.length === 0) return;
 
-    if (keysSelectedSymbols.length > 1024) {
-      toast.error("Limit exceeded", {
-        description:
-          "You selected too many symbols. Limit is 1024 per operation.",
-      });
-      return;
-    }
-
     const selectedRows = keysSelectedSymbols.map((key) => symbols[Number(key)]);
 
     const allSymbolsInLists = new Set<string>();
@@ -48,6 +40,15 @@ export function SymbolSelectorManager({
     if (duplicates.length > 0) {
       toast.error("Duplicate symbols", {
         description: `Already added in other lists: ${duplicates.join(", ")}`,
+      });
+      return;
+    }
+
+    const totalAfterAddition = allSymbolsInLists.size + selectedRows.length;
+
+    if (totalAfterAddition > 1024) {
+      toast.error("Limit exceeded", {
+        description: `You can only have up to 1024 symbols across all lists. You already have ${allSymbolsInLists.size}.`,
       });
       return;
     }
