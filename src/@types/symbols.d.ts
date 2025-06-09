@@ -1,7 +1,9 @@
 export type Symbol = {
   symbol: string;
-  baseAsset: string;
-  quoteAsset: string;
+  lastPrice?: string;
+  bidPrice?: string;
+  askPrice?: string;
+  priceChange?: string;
 };
 
 export type SymbolList = {
