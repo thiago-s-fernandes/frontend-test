@@ -1,4 +1,5 @@
 import { cn } from "@/lib/tailwind/utils";
+import { generateId } from "@/utils/generate-id";
 import {
   flexRender,
   getCoreRowModel,
@@ -70,7 +71,7 @@ export function SymbolListTable<TData, TValue>({
               table.getRowModel().rows?.map((row) => {
                 return (
                   <TableRow
-                    key={row.id}
+                    key={row?.id ?? generateId()}
                     data-state={
                       options?.enableRowSelection && row.getIsSelected()
                         ? "selected"
@@ -78,7 +79,7 @@ export function SymbolListTable<TData, TValue>({
                     }
                   >
                     {row
-                      .getVisibleCells()
+                      ?.getVisibleCells()
                       ?.map((cell) => (
                         <TableCell key={cell.id}>
                           {flexRender(

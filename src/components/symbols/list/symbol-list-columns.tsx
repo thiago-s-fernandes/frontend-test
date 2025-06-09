@@ -14,7 +14,13 @@ export const symbolListColumns: ColumnDef<Symbol>[] = [
     cell: ({ row }) => {
       const value = row.getValue("lastPrice") as string | undefined;
 
-      if (!value) return <Skeleton className="w-full h-8" />;
+      if (!value)
+        return (
+          <Skeleton
+            className="w-full h-8"
+            data-testid={`lastPrice ${row.getValue("lastPrice")}`}
+          />
+        );
 
       return value;
     },
@@ -25,7 +31,13 @@ export const symbolListColumns: ColumnDef<Symbol>[] = [
     cell: ({ row }) => {
       const value = row.getValue("bidPrice") as string | undefined;
 
-      if (!value) return <Skeleton className="w-full h-8" />;
+      if (!value)
+        return (
+          <Skeleton
+            className="w-full h-8"
+            data-testid={`bidPrice ${row.getValue("bidPrice")}`}
+          />
+        );
 
       return value;
     },
@@ -36,7 +48,13 @@ export const symbolListColumns: ColumnDef<Symbol>[] = [
     cell: ({ row }) => {
       const value = row.getValue("askPrice") as string | undefined;
 
-      if (!value) return <Skeleton className="w-full h-8" />;
+      if (!value)
+        return (
+          <Skeleton
+            className="w-full h-8"
+            data-testid={`askPrice ${row.getValue("askPrice")}`}
+          />
+        );
 
       return value;
     },
@@ -50,7 +68,10 @@ export const symbolListColumns: ColumnDef<Symbol>[] = [
       if (!value)
         return (
           <div className="flex justify-end">
-            <Skeleton className="w-full h-8" />
+            <Skeleton
+              className="w-full h-8"
+              data-testid={`priceChange ${row.getValue("priceChange")}`}
+            />
           </div>
         );
 

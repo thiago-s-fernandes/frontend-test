@@ -1,3 +1,4 @@
+import { generateId } from "@/utils/generate-id";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { useRef } from "react";
@@ -96,7 +97,7 @@ export function SymbolSelectorTable<TData, TValue>({
 
                   return (
                     <TableRow
-                      key={row.id}
+                      key={row?.id ?? generateId()}
                       style={{
                         height: `${virtualRow.size}px`,
                         transform: `translateY(${
@@ -110,7 +111,7 @@ export function SymbolSelectorTable<TData, TValue>({
                       }
                     >
                       {row
-                        .getVisibleCells()
+                        ?.getVisibleCells()
                         ?.map((cell) => (
                           <TableCell key={cell.id}>
                             {flexRender(

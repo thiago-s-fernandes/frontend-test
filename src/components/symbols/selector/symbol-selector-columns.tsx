@@ -24,7 +24,8 @@ export const SymbolSelectorColumns: ColumnDef<SymbolSelectorColumns>[] = [
         <Checkbox
           checked={row.getIsSelected()}
           onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Select row"
+          aria-label={`Select symbol ${row.getValue("symbol")}`}
+          id={row.getValue("symbol")}
         />
       ),
     enableSorting: false,
@@ -39,7 +40,10 @@ export const SymbolSelectorColumns: ColumnDef<SymbolSelectorColumns>[] = [
     ),
     cell: ({ row }) =>
       row.original.isSkeleton ? (
-        <Skeleton className="h-8 w-[calc(100%-8px)]" />
+        <Skeleton
+          className="h-8 w-[calc(100%-8px)]"
+          data-testid={row.getValue("symbol")}
+        />
       ) : (
         row.original.symbol
       ),
