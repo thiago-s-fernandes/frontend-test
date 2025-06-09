@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { generateId } from "@/utils/generate-id";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PlusIcon, TrashIcon } from "@/components/icons";
@@ -82,7 +83,7 @@ export function SymbolListManager() {
           <SelectContent>
             <SelectGroup>
               {lists?.map(({ id, name }) => (
-                <SelectItem key={id} value={id}>
+                <SelectItem key={id ?? generateId()} value={id}>
                   {name}
                 </SelectItem>
               ))}

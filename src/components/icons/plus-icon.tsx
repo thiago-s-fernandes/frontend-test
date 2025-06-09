@@ -13,6 +13,7 @@ export default function PlusIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      data-testid="plus-icon"
     >
       <path d="M5 12h14m-7-7v14" />
     </svg>

@@ -13,6 +13,7 @@ export default function ChevronDownIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      data-testid="chevron-down-icon"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>

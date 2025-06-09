@@ -13,6 +13,7 @@ export default function CheckIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      data-testid="check-icon"
     >
       <path d="M20 6 9 17l-5-5" />
     </svg>

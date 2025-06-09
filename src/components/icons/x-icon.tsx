@@ -13,6 +13,7 @@ export default function XIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      data-testid="x-icon"
     >
       <path d="M18 6 6 18M6 6l12 12" />
     </svg>
