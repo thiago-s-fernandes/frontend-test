@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import SearchIcon from "@/components/icons/search-icon";
 
-interface SymbolSelectTableProps<TData, TValue> {
+interface SymbolSelectorTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   options?: Omit<
@@ -21,11 +21,11 @@ interface SymbolSelectTableProps<TData, TValue> {
   >;
 }
 
-export function SymbolSelectTable<TData, TValue>({
+export function SymbolSelectorTable<TData, TValue>({
   columns,
   data,
   options,
-}: SymbolSelectTableProps<TData, TValue>) {
+}: SymbolSelectorTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
     columns,
